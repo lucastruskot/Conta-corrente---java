@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class desafio
+{
+    public static void main(String[] args){
+
+        String nome = "clar kent";
+        String tipoConta = "Corrente";
+        double saldo = 1600;
+        int  opcao = 0;
+
+        System.out.println("*************************");
+        System.out.println("\n Nome do cliente : "+nome);
+        System.out.println("\n tipo conta :" + tipoConta);
+        System.out.println("\n tipo conta :" + saldo);
+        System.out.println("\n ***************************");
+
+        String menu = """
+                ** Digite sua opção **
+                
+                1 - consultar saldo
+                2 - transferir valor
+                3 - receber valor
+                4 - sair
+                """;
+        Scanner leitura = new Scanner(System.in);
+        while (opcao != 4){
+
+            System.out.println(menu);
+            opcao = leitura.nextInt();
+
+            if(opcao == 1) {
+                System.out.println(" o saldo atualizado é " + saldo);
+
+            }else if (opcao == 2){
+                System.out.println(" qual o valor que deseja transferir ");
+                double valor = leitura.nextDouble();
+                if (valor > saldo){
+                    System.out.println(" não há saldo suficiente para transferência");
+
+                } else{
+                    saldo = saldo - valor;
+                    System.out.println("saldo atualizado " + saldo);
+                }
+
+            }else if(opcao == 3){
+
+                System.out.println("\n valor recebido : ");
+                double valor = leitura.nextDouble();
+                saldo = saldo + valor;
+
+                System.out.println(" Novo saldo" + saldo);
+            } else if (opcao == 4){
+                System.out.println( " opcao invalida");
+            }
+
+
+
+        }
+
+    }
+
+}
